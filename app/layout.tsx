@@ -1,7 +1,7 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import MegaMenu from '@/components/menus/mega';
+import MegaMenu from '@/components/menus/Mega';
 
 const inter = Inter({ subsets: ['latin'] })
 
