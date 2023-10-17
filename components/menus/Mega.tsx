@@ -16,7 +16,7 @@ export default function MegaMenu() {
     <nav className="bg-white border-gray-200">
       <div className="flex flex-wrap items-center justify-between max-w-screen-xl mx-auto p-4">
         <a onClick={() => {router.push('/');}} className="cursor-pointer flex items-center">
-          <span className="self-center text-2xl font-semibold whitespace-nowrap">Creator's Play Ground</span>
+          <span className="self-center text-2xl font-semibold whitespace-nowrap">Creator&apos;s Play Ground</span>
         </a>
         <div className="flex items-center">
           <a className="cursor-pointer text-gray-800 hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 py-2 mr-1 focus:outline-none">Login</a>
