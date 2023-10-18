@@ -12,7 +12,7 @@ interface WordInterface {
 // ㄱ ㄲ ㄴ ㄷ ㄸ ㄹ ㅁ ㅂ ㅃ ㅅ ㅆ ㅇ ㅈ ㅉ ㅊ ㅋ ㅌ ㅍ ㅎ
 // ㅏ ㅐ ㅑ ㅒ ㅓ ㅔ ㅕ ㅖ ㅗ ㅘ ㅙ ㅚ ㅛ ㅜ ㅝ ㅞ ㅟ ㅠ ㅡ ㅢ ㅣ
 
-const Korean:WordInterface[] = [
+const KoreanDictionary:WordInterface[] = [
   {level: 1 , language: 'korean'  , word: '가위', first_vowel: 'ㅏ', first_consonant: 'ㄱ', },
   {level: 2 , language: 'korean'  , word: '가자미', first_vowel: 'ㅏ', first_consonant: 'ㄱ', },
   {level: 2 , language: 'korean'  , word: '가오리', first_vowel: 'ㅏ', first_consonant: 'ㄱ', },
@@ -92,3 +92,5 @@ const Korean:WordInterface[] = [
   {level: 1 , language: 'korean'  , word: '호랑이', first_vowel: 'ㅗ', first_consonant: 'ㅎ', },
   {level: 1 , language: 'korean'  , word: '힘껏', first_vowel: 'ㅣ', first_consonant: 'ㅎ', },
 ];
+
+export {KoreanDictionary};
