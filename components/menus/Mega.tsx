@@ -1,11 +1,14 @@
 'use client';
 
 import {useEffect, useState} from 'react';
-import {useRouter} from "next/navigation";
+import {useRouter, usePathname} from "next/navigation";
 import Image from 'next/image';
 
 export default function MegaMenu() {
   const router = useRouter();
+  const pathname = usePathname();
+  const defaultMenuClsNm = 'cursor-pointer block py-2 pl-3 pr-4 text-gray-900 border-b border-gray-100 hover:bg-gray-50';
+  const activeMenuClsNm = 'cursor-pointer block py-2 pl-3 pr-4 text-blue-600 border-b border-gray-100 hover:bg-gray-50';
   const [menuHidden, setMenuHidden] = useState(true);
 
   const handleMenu = () => {
@@ -13,8 +16,8 @@ export default function MegaMenu() {
   }
 
   return (
-    <nav className="bg-white border-gray-200">
-      <div className="flex flex-wrap items-center justify-between max-w-screen-xl mx-auto p-4">
+    <nav className="w-full bg-white border-gray-200">
+      <div className="flex flex-wrap items-center justify-between w-full mx-auto p-4">
         <a onClick={() => {router.push('/');}} className="cursor-pointer flex items-center">
           <span className="self-center text-2xl font-semibold whitespace-nowrap">Creator&apos;s Play Ground</span>
         </a>
@@ -31,7 +34,10 @@ export default function MegaMenu() {
         <div id="mega-menu" className={`items-center justify-between ${menuHidden ? 'hidden' : ''} w-full`}>
           <ul className="flex flex-col mt-4 font-medium">
             <li>
-              <a onClick={() => {router.push('/');}} className="cursor-pointer block py-2 pl-3 pr-4 text-blue-600 border-b border-gray-100 hover:bg-gray-50" aria-current="page">Home</a>
+              <a onClick={() => {router.push('/');}} className={`${pathname == '/' ? activeMenuClsNm : defaultMenuClsNm}`} aria-current="page">Home</a>
+            </li>
+            <li>
+              <a onClick={() => {router.push('/flowbite/accordion');}} className={`${pathname.startsWith('/flowbite') ? activeMenuClsNm : defaultMenuClsNm}`} aria-current="page">Flowbite</a>
             </li>
             <li>
               <button onClick={() => {}} className="flex items-center justify-between w-full py-2 pl-3 pr-4 font-medium text-gray-900 border-b border-gray-100 hover:bg-gray-50">
@@ -55,42 +61,42 @@ export default function MegaMenu() {
                     </li>
                   </ul>
                 </div>
-                  <div className="p-4 pb-0 text-gray-900">
-                    <ul className="space-y-4">
-                      <li>
-                        <a className="cursor-pointer text-gray-500 hover:text-blue-600">Blog</a>
-                      </li>
-                      <li>
-                        <a className="cursor-pointer text-gray-500 hover:text-blue-600">Newsletter</a>
-                      </li>
-                      <li>
-                        <a className="cursor-pointer text-gray-500 hover:text-blue-600">Playground</a>
-                      </li>
-                      <li>
-                        <a className="cursor-pointer text-gray-500 hover:text-blue-600">License</a>
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="p-4">
-                    <ul className="space-y-4">
-                      <li>
-                        <a className="cursor-pointer text-gray-500 hover:text-blue-600">Contact Us</a>
-                      </li>
-                      <li>
-                        <a className="cursor-pointer text-gray-500 hover:text-blue-600">Support Center</a>
-                      </li>
-                      <li>
-                        <a className="cursor-pointer text-gray-500 hover:text-blue-600">Terms</a>
-                      </li>
-                    </ul>
-                  </div>
+                <div className="p-4 pb-0 text-gray-900">
+                  <ul className="space-y-4">
+                    <li>
+                      <a className="cursor-pointer text-gray-500 hover:text-blue-600">Blog</a>
+                    </li>
+                    <li>
+                      <a className="cursor-pointer text-gray-500 hover:text-blue-600">Newsletter</a>
+                    </li>
+                    <li>
+                      <a className="cursor-pointer text-gray-500 hover:text-blue-600">Playground</a>
+                    </li>
+                    <li>
+                      <a className="cursor-pointer text-gray-500 hover:text-blue-600">License</a>
+                    </li>
+                  </ul>
+                </div>
+                <div className="p-4">
+                  <ul className="space-y-4">
+                    <li>
+                      <a className="cursor-pointer text-gray-500 hover:text-blue-600">Contact Us</a>
+                    </li>
+                    <li>
+                      <a className="cursor-pointer text-gray-500 hover:text-blue-600">Support Center</a>
+                    </li>
+                    <li>
+                      <a className="cursor-pointer text-gray-500 hover:text-blue-600">Terms</a>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </li>
             <li>
-              <a className="cursor-pointer block py-2 pl-3 pr-4 text-gray-900 border-b border-gray-100 hover:bg-gray-50">Team</a>
+              <a className={`${pathname.startsWith('/team') ? activeMenuClsNm : defaultMenuClsNm}`}>Team</a>
             </li>
             <li>
-              <a className="cursor-pointer block py-2 pl-3 pr-4 text-gray-900 border-b border-gray-100 hover:bg-gray-50">Contact</a>
+              <a className={`${pathname.startsWith('/contact') ? activeMenuClsNm : defaultMenuClsNm}`}>Contact</a>
             </li>
           </ul>
         </div>
