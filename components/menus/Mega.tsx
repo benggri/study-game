@@ -2,6 +2,7 @@
 
 import {useEffect, useState} from 'react';
 import {useRouter, usePathname} from "next/navigation";
+import Link from 'next/link';
 import Image from 'next/image';
 
 export default function MegaMenu() {
@@ -11,14 +12,19 @@ export default function MegaMenu() {
   const activeMenuClsNm = 'cursor-pointer block py-2 pl-3 pr-4 text-blue-600 border-b border-gray-100 hover:bg-gray-50';
   const [menuHidden, setMenuHidden] = useState(true);
 
+  const onClickMenu = (url:string) => {
+    router.push(url);
+    setMenuHidden(!menuHidden);
+  }
+
   const handleMenu = () => {
     setMenuHidden(!menuHidden);
   }
 
   return (
-    <nav className="w-full bg-white border-gray-200">
+    <nav className="fixed w-full bg-white border-gray-200 h-calc(72px)">
       <div className="flex flex-wrap items-center justify-between w-full mx-auto p-4">
-        <a onClick={() => {router.push('/');}} className="cursor-pointer flex items-center">
+        <a onClick={() => {onClickMenu('/');}} className="cursor-pointer flex items-center">
           <span className="self-center text-2xl font-semibold whitespace-nowrap">Creator&apos;s Play Ground</span>
         </a>
         <div className="flex items-center">
@@ -31,13 +37,13 @@ export default function MegaMenu() {
             </svg>
           </button>
         </div>
-        <div id="mega-menu" className={`items-center justify-between ${menuHidden ? 'hidden' : ''} w-full`}>
+        <div id="mega-menu" className={`z-40 items-center justify-between ${menuHidden ? 'hidden' : ''} w-full`}>
           <ul className="flex flex-col mt-4 font-medium">
             <li>
-              <a onClick={() => {router.push('/');}} className={`${pathname == '/' ? activeMenuClsNm : defaultMenuClsNm}`} aria-current="page">Home</a>
+              <a onClick={() => {onClickMenu('/');}} className={`${pathname == '/' ? activeMenuClsNm : defaultMenuClsNm}`} aria-current="page">Home</a>
             </li>
             <li>
-              <a onClick={() => {router.push('/flowbite/accordion');}} className={`${pathname.startsWith('/flowbite') ? activeMenuClsNm : defaultMenuClsNm}`} aria-current="page">Flowbite</a>
+              <a onClick={() => {onClickMenu('/flowbite/accordion');}} className={`${pathname.startsWith('/flowbite') ? activeMenuClsNm : defaultMenuClsNm}`} aria-current="page">Flowbite</a>
             </li>
             <li>
               <button onClick={() => {}} className="flex items-center justify-between w-full py-2 pl-3 pr-4 font-medium text-gray-900 border-b border-gray-100 hover:bg-gray-50">

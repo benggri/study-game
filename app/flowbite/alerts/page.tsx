@@ -1,26 +1,54 @@
 'use client';
 
-import Image from 'next/image';
+import { Alert, Button } from 'flowbite-react';
 
-export default function Alerts() {
+export default function AlertsPage() {
 
   return (
     <>
-      <div className="p-4 mb-4 text-sm text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400" role="alert">
-        <span className="font-medium">Info alert!</span> Change a few things up and try submitting again.
-      </div>
-      <div className="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
-        <span className="font-medium">Danger alert!</span> Change a few things up and try submitting again.
-      </div>
-      <div className="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
-        <span className="font-medium">Success alert!</span> Change a few things up and try submitting again.
-      </div>
-      <div className="p-4 mb-4 text-sm text-yellow-800 rounded-lg bg-yellow-50 dark:bg-gray-800 dark:text-yellow-300" role="alert">
-        <span className="font-medium">Warning alert!</span> Change a few things up and try submitting again.
-      </div>
-      <div className="p-4 text-sm text-gray-800 rounded-lg bg-gray-50 dark:bg-gray-800 dark:text-gray-300" role="alert">
-        <span className="font-medium">Dark alert!</span> Change a few things up and try submitting again.
-      </div>
+      <Button color="dark" pill className={`mb-2`} href='https://www.flowbite-react.com/docs/components/alert'>
+        <p>https://www.flowbite-react.com/docs/components/alert</p>
+      </Button>
+      <Alert color="info" className={`mb-2`} >
+        <span>
+          <p>
+            <span className="font-medium">
+            Info alert!
+            </span>
+            Change a few things up and try submitting again.
+          </p>
+        </span>
+      </Alert>
+      <Alert color="failure" className={`mb-2`} >
+        <span>
+          <p>
+            <span className="font-medium">
+              Info alert!
+            </span>
+            Change a few things up and try submitting again.
+          </p>
+        </span>
+      </Alert>
+      <Alert color="warning" className={`mb-2`} rounded>
+        <span>
+          <p>
+            <span className="font-medium">
+              Info alert!
+            </span>
+            Change a few things up and try submitting again.
+          </p>
+        </span>
+      </Alert>
+      <Alert color="warning" className={`mb-2`} withBorderAccent>
+        <span>
+          <p>
+            <span className="font-medium">
+              Info alert!
+            </span>
+            Change a few things up and try submitting again.
+          </p>
+        </span>
+      </Alert>
     </>
   );
 

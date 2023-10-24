@@ -1,28 +1,35 @@
-export default function Badge() {
+'use client';
+
+import { Badge, Button } from 'flowbite-react';
+
+export default function BadgePage() {
 
   return (
     <>
+      <Button color="dark" pill className={`mb-2`} href='https://www.flowbite-react.com/docs/components/badge'>
+        <p>https://www.flowbite-react.com/docs/components/badge</p>
+      </Button>
       <div className="mb-2">
         <h1>Default Badge</h1>
-        <span className="bg-blue-100 text-blue-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">Default</span>
-        <span className="bg-gray-100 text-gray-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300">Dark</span>
-        <span className="bg-red-100 text-red-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300">Red</span>
-        <span className="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">Green</span>
-        <span className="bg-yellow-100 text-yellow-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">Yellow</span>
-        <span className="bg-indigo-100 text-indigo-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-indigo-900 dark:text-indigo-300">Indigo</span>
-        <span className="bg-purple-100 text-purple-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">Purple</span>
-        <span className="bg-pink-100 text-pink-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-pink-900 dark:text-pink-300">Pink</span>
+        <Badge color="info">Default</Badge>
+        <Badge color="gray">Dark</Badge>
+        <Badge color="failure">Failure</Badge>
+        <Badge color="success">Success</Badge>
+        <Badge color="warning">Warning</Badge>
+        <Badge color="indigo">Indigo</Badge>
+        <Badge color="purple">Purple</Badge>
+        <Badge color="pink">Pink</Badge>
       </div>
       <div className="mb-2">
         <h1>Large Badge</h1>
-        <span className="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">Default</span>
-        <span className="bg-gray-100 text-gray-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300">Dark</span>
-        <span className="bg-red-100 text-red-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300">Red</span>
-        <span className="bg-green-100 text-green-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">Green</span>
-        <span className="bg-yellow-100 text-yellow-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">Yellow</span>
-        <span className="bg-indigo-100 text-indigo-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-indigo-900 dark:text-indigo-300">Indigo</span>
-        <span className="bg-purple-100 text-purple-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">Purple</span>
-        <span className="bg-pink-100 text-pink-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-pink-900 dark:text-pink-300">Pink</span>
+        <Badge color="info" size="sm"><p>Default</p></Badge>
+        <Badge color="gray" size="sm"><p>Dark</p></Badge>
+        <Badge color="failure" size="sm"><p>Failure</p></Badge>
+        <Badge color="success" size="sm"><p>Success</p></Badge>
+        <Badge color="warning" size="sm"><p>Warning</p></Badge>
+        <Badge color="indigo" size="sm"><p>Indigo</p></Badge>
+        <Badge color="purple" size="sm"><p>Purple</p></Badge>
+        <Badge color="pink" size="sm"><p>Pink</p></Badge>
       </div>
       <div className="mb-2">
         <h1>Bordered Badge</h1>
