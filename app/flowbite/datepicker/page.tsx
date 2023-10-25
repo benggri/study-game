@@ -4,7 +4,7 @@ import { Datepicker, Table } from 'flowbite-react';
 
 export default function DatepickerPage() {
   return (
-    <div className='grid grid-cols-4 gap-3'>
+    <div className='grid grid-cols-4 gap-3 min-[320px]:grid-cols-1'>
       <div className='mb-2'>
         <p className='text-xl'>Default Datepicker</p>
         <Datepicker />

@@ -30,7 +30,7 @@ export default function CardPage() {
       <Button color="dark" pill className={`mb-2`} href='https://www.flowbite-react.com/docs/components/card'>
         <p>https://www.flowbite-react.com/docs/components/card</p>
       </Button>
-      <div className='grid grid-cols-3 gap-2'>
+      <div className='grid grid-cols-3 gap-2 min-[320px]:grid-cols-1'>
         <div>
           <Card className="max-w-sm" href="#">
             <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">

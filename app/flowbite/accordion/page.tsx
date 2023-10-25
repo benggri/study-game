@@ -9,7 +9,7 @@ export default function AccordionPage() {
       <Button color="dark" pill className={`mb-2`} href='https://www.flowbite-react.com/docs/components/accordion'>
         <p>https://www.flowbite-react.com/docs/components/accordion</p>
       </Button>
-      <Accordion className={`w-1/2`}>
+      <Accordion className={`w-1/2 min-[320px]:w-full`}>
         <Accordion.Panel>
           <Accordion.Title>What is Flowbite?</Accordion.Title>
           <Accordion.Content>

@@ -17,7 +17,7 @@ export default function MegaMenuComponent() {
   const flowbiteList = [
     {label: "Accordion", value:"accordion"},
     {label: "Alerts", value:"alerts"},
-    {label: "Badge", value:"badge"},
+    // {label: "Badge", value:"badge"},
     {label: "Breadcrumb", value:"breadcrumb"},
     {label: "Button", value:"button"},
     {label: "Card", value:"card"},

@@ -6,8 +6,8 @@ import { MdKeyboardArrowLeft, MdKeyboardArrowRight, MdKeyboardArrowDown, MdKeybo
 export default function KBDPage() {
 
   return (
-    <div>
-      <div className='mb-2'>
+    <div className='grid gird-cols-1 gap-2'>
+      <div className='mb-2 grid grid-cols-4 gap-2'>
         <Kbd>Shift</Kbd>
         <Kbd>Ctrl</Kbd>
         <Kbd>Tab</Kbd>
