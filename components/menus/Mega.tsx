@@ -3,11 +3,7 @@
 import {useRouter, usePathname} from "next/navigation";
 import { Button, Dropdown, Navbar } from 'flowbite-react';
 
-export default function MegaMenu({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function MegaMenuComponent() {
   const router = useRouter();
   const pathname = usePathname();
 
@@ -21,6 +17,8 @@ export default function MegaMenu({
     // {label: "Carousel", value:"carousel"},
     {label: "Datepicker", value:"datepicker"},
     {label: "Dropdown", value:"dropdown"},
+    {label: "Footer", value:"footer"},
+    {label: "KBD", value:"kbd"},
   ];
 
   const onClickMenu = (url:string) => {
@@ -63,9 +61,6 @@ export default function MegaMenu({
           </Navbar.Collapse>
         </Navbar>
       </header>
-      <main className="flex min-h-screen flex-col items-center p-24">
-        {children}
-      </main>
     </>
   );
 }

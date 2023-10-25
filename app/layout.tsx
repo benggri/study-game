@@ -2,7 +2,8 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
-import MegaMenu from '@/components/menus/Mega';
+import MegaMenuComponent from '@/components/menus/Mega';
+import FooterComponent from '@/components/layout/Footer';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,9 +20,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <MegaMenu>
+        <MegaMenuComponent/>
+        <main className="flex min-h-screen flex-col items-center p-24">
           {children}
-        </MegaMenu>
+        </main>
+        <FooterComponent/>
       </body>
     </html>
   )
