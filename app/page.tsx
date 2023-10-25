@@ -5,7 +5,7 @@ export default function Home() {
   const skeletons = Array(10).fill(0);
 
   return (
-    <>
+    <div className='p-24'>
       {
         skeletons.map((skeleton:any, idx:number) => {
           return (
@@ -28,6 +28,6 @@ export default function Home() {
           );
         })
       }
-    </>
+    </div>
   )
 }

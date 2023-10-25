@@ -3,6 +3,13 @@
 import {useRouter, usePathname} from "next/navigation";
 import { Button, Dropdown, Navbar } from 'flowbite-react';
 
+interface MenuType {
+  label: string,
+  matchUrl: string,
+  url?: string,
+  children?: MenuType[],
+}
+
 export default function MegaMenuComponent() {
   const router = useRouter();
   const pathname = usePathname();
@@ -38,9 +45,26 @@ export default function MegaMenuComponent() {
             <Navbar.Toggle />
           </div>
           <Navbar.Collapse>
-            <Navbar.Link onClick={() => {onClickMenu('/');}} className={`${pathname == '/' ? 'text-blue-700' : 'text-gray-900'} cursor-pointer`}>Home</Navbar.Link>
+            <Navbar.Link 
+              onClick={() => {onClickMenu('/');}} 
+              className={`${pathname == '/' ? 'text-blue-700' : 'text-gray-900'} cursor-pointer`}
+            >
+              Home
+            </Navbar.Link>
+            <Navbar.Link className="curosr-pointer">
+              <Dropdown arrowIcon={true} inline 
+                label={<span className={`${pathname.startsWith('/javascript') ? 'text-blue-700' : 'text-gray-900'}`}>javascript</span>}
+              >
+                <Dropdown.Item
+                  onClick={() => {onClickMenu(`/javascript/es6`);}} 
+                  className={`${pathname.startsWith(`/javascript/es6`) ? 'text-blue-700' : 'text-gray-900'}`}
+                >
+                  ES6
+                </Dropdown.Item>
+              </Dropdown>
+            </Navbar.Link>
             <Navbar.Link className='cursor-pointer'>
-              <Dropdown className={`z-[1000]`} arrowIcon={true} inline 
+              <Dropdown arrowIcon={true} inline 
                 label={<span className={`${pathname.startsWith('/flowbite') ? 'text-blue-700' : 'text-gray-900'}`}>Flowbite</span>}
               >
                 {
