@@ -1,7 +1,6 @@
 'use client';
 
 import { Accordion, Button } from 'flowbite-react';
-import Image from 'next/image';
 
 export default function AccordionPage() {
 
@@ -10,7 +9,7 @@ export default function AccordionPage() {
       <Button color="dark" pill className={`mb-2`} href='https://www.flowbite-react.com/docs/components/accordion'>
         <p>https://www.flowbite-react.com/docs/components/accordion</p>
       </Button>
-      <Accordion>
+      <Accordion className={`w-1/2`}>
         <Accordion.Panel>
           <Accordion.Title>What is Flowbite?</Accordion.Title>
           <Accordion.Content>

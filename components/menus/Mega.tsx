@@ -18,6 +18,9 @@ export default function MegaMenu({
     {label: "Breadcrumb", value:"breadcrumb"},
     {label: "Button", value:"button"},
     {label: "Card", value:"card"},
+    // {label: "Carousel", value:"carousel"},
+    {label: "Datepicker", value:"datepicker"},
+    {label: "Dropdown", value:"dropdown"},
   ];
 
   const onClickMenu = (url:string) => {
@@ -37,13 +40,20 @@ export default function MegaMenu({
             <Navbar.Toggle />
           </div>
           <Navbar.Collapse>
-            <Navbar.Link onClick={() => {onClickMenu('/');}} className='cursor-pointer' active={pathname == '/' ? true : false}>Home</Navbar.Link>
-            <Navbar.Link>
-              <Dropdown className={`z-[1000]`} arrowIcon={true} inline label={<span>Flowbite</span>}>
+            <Navbar.Link onClick={() => {onClickMenu('/');}} className={`${pathname == '/' ? 'text-blue-700' : 'text-gray-900'} cursor-pointer`}>Home</Navbar.Link>
+            <Navbar.Link className='cursor-pointer'>
+              <Dropdown className={`z-[1000]`} arrowIcon={true} inline 
+                label={<span className={`${pathname.startsWith('/flowbite') ? 'text-blue-700' : 'text-gray-900'}`}>Flowbite</span>}
+              >
                 {
                   flowbiteList.map((flowbite:any, idx:number) => {
                     return (
-                      <Dropdown.Item key={`menu-flowbite-${idx}`} onClick={() => {onClickMenu(`/flowbite/${flowbite.value}`);}}>{flowbite.label}</Dropdown.Item>
+                      <Dropdown.Item key={`menu-flowbite-${idx}`} 
+                        onClick={() => {onClickMenu(`/flowbite/${flowbite.value}`);}} 
+                        className={`${pathname == `/flowbite/${flowbite.value}` ? 'text-blue-700' : 'text-gray-900'}`}
+                      >
+                        {flowbite.label}
+                      </Dropdown.Item>
                     );
                   })
                 }
