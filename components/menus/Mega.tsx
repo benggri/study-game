@@ -63,6 +63,16 @@ export default function MegaMenuComponent() {
                 </Dropdown.Item>
               </Dropdown>
             </Navbar.Link>
+            <Navbar.Link className="curosr-pointer">
+              <Dropdown arrowIcon={true} inline 
+                label={<span className={`${pathname.startsWith('/nextjs') ? 'text-blue-700' : 'text-gray-900'}`}>Nextjs</span>}
+              >
+                <Dropdown.Item
+                >
+                  temp
+                </Dropdown.Item>
+              </Dropdown>
+            </Navbar.Link>
             <Navbar.Link className='cursor-pointer'>
               <Dropdown arrowIcon={true} inline 
                 label={<span className={`${pathname.startsWith('/flowbite') ? 'text-blue-700' : 'text-gray-900'}`}>Flowbite</span>}
