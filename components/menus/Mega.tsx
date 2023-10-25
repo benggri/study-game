@@ -26,8 +26,8 @@ export default function MegaMenu({
 
   return (
     <>
-      <div>
-        <Navbar>
+      <header className="fixed w-full z-[1000]">
+        <Navbar fluid rounded border>
           <Navbar.Brand onClick={() => {onClickMenu('/');}} className='cursor-pointer'>
             <span className="self-center text-2xl font-semibold whitespace-nowrap">Creator&apos;s Play Ground</span>
           </Navbar.Brand>
@@ -52,7 +52,7 @@ export default function MegaMenu({
             <Navbar.Link href="#">Contact</Navbar.Link>
           </Navbar.Collapse>
         </Navbar>
-      </div>
+      </header>
       <main className="flex min-h-screen flex-col items-center p-24">
         {children}
       </main>
