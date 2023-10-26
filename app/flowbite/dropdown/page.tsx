@@ -5,7 +5,7 @@ import { HiCog, HiCurrencyDollar, HiLogout, HiViewGrid } from 'react-icons/hi';
 
 export default function DropdownPage() {
   return (
-    <div className='grid grid-cols-4 gap-3 min-[320px]:grid-cols-1'>
+    <div className='grid grid-cols-4 gap-3 max-[500px]:grid-cols-1'>
       <div className='mb-2'>
         <p className='text-xl'>Default dropdown</p>
         <Dropdown label="Dropdown button" dismissOnClick={false}>

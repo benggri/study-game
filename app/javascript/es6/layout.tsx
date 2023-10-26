@@ -18,7 +18,7 @@ export default function JsEs6Layout({
   const router = useRouter(); 
 
   return (
-    <div className="pl-12 min-[320px]:pl-0 pt-24 w-full">
+    <div className="pl-12 max-[500px]:pl-0 pt-24 w-full">
       <div className="mb-2">
         <Breadcrumb aria-label="breadcrumb">
         <Breadcrumb.Item onClick={() => {router.push('/')}} icon={HiHome} className="cursor-pointer"><p>Home</p></Breadcrumb.Item>

@@ -5,7 +5,7 @@ import { Button } from 'flowbite-react';
 export default function ButtonPage() {
 
   return (
-    <div className='min-[320px]:mb-24'>
+    <div className='max-[500px]:mb-24'>
       <Button color="dark" pill className={`mb-2`} href='https://www.flowbite-react.com/docs/components/button'>
         <p>https://www.flowbite-react.com/docs/components/button</p>
       </Button>

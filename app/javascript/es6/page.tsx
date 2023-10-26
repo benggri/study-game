@@ -24,7 +24,7 @@ export default function JsES6Page() {
 
   return (
     <div className='items-center mb-20'>
-      <Accordion className='w-2/3 min-[320px]:w-full'>
+      <Accordion className='w-2/3 max-[500px]:w-full'>
         <Accordion.Panel id='let-const'>
           <Accordion.Title>let, const</Accordion.Title>
           <Accordion.Content>{getLetConst()}</Accordion.Content>

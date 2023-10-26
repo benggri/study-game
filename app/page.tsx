@@ -10,11 +10,11 @@ export default function Home() {
   const skeletons = Array(10).fill(0);
 
   return (
-    <div className='p-24 min-[320px]:p-0 min-[320px]:pt-24'>
+    <div className='p-24 max-[500px]:p-0 max-[500px]:pt-24'>
       {
         skeletons.map((skeleton:any, idx:number) => {
           return (
-            <div key={idx} className='w-96 px-16 min-[320px]:px-0'>
+            <div key={idx} className='w-96 px-16 max-[500px]:px-0'>
               <Card className={`mb-2`}>
                 <div className="w-full h-2.5 bg-gray-200 rounded-full mb-4"></div>
                 <div className="font-normal text-gray-700">

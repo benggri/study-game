@@ -87,11 +87,11 @@ export const getMultiLineString = () => {
       <div className='text-sm'>
         <SyntaxHighlighter language="javascript" style={docco}>
         {`// ES5
-    var str = 'asdhasfhfsahsfhfshasfhsfahsfahsfahasfh.\\n' 
-            + 'mxmxmxmxmxmxmxmmxmxmxmxmxmmxmxmxmxmxm.\\n';
-    // ES6
-    let str = \`asdhasfhfsahsfhfshasfhsfahsfahsfahasfh
-    mxmxmxmxmxmxmxmmxmxmxmxmxmmxmxmxmxmxm\`;`}
+var str = 'asdhasfhfsahsfhfshasfhsfahsfahsfahasfh.\\n' 
+        + 'mxmxmxmxmxmxmxmmxmxmxmxmxmmxmxmxmxmxm.\\n';
+// ES6
+let str = \`asdhasfhfsahsfhfshasfhsfahsfahsfahasfh
+mxmxmxmxmxmxmxmmxmxmxmxmxmmxmxmxmxmxm\`;`}
         </SyntaxHighlighter>
       </div>
     </>
@@ -341,18 +341,310 @@ console.log(obj1 === newObj); // false
 export const getPromise = () => { 
   return (
     <>
+      <Alert color="info" className={`mb-2`} >
+        <span><p>프로미스는 자바스크립트 비동기 처리에 사용되는 객체입니다.</p></span>
+      </Alert>
+      <Alert color="info" className={`mb-2`} >
+        <span><p>여기서 자바스크립트의 비동기 처리란 ‘특정 코드의 실행이 완료될 때까지 기다리지 않고 다음 코드를 먼저 수행하는 자바스크립트의 특성’을 의미합니다.</p></span>
+      </Alert>
+      <div className='text-sm'>
+        <SyntaxHighlighter language="javascript" style={docco}>
+        {`// ES5
+function getData(callBackFunc) {
+    // ajax get
+    $.get('url 주소', function(response) {
+        callBackFunc(response);
+    });
+}
+ 
+getData(function(responseData) {
+    console.log(responseData);
+});
+ 
+// ES6 Promise
+function getData() {
+    // Promise
+    return new Promise(function(resolve, reject) {
+        $.get('url 주소', function(response) {
+            resolve(response);
+        });
+    });
+}
+ 
+getData().then(function(responseData) {
+    console.log(responseData);
+});`}
+        </SyntaxHighlighter>
+      </div>
+      <p className='text-md font-bold'>Promise 의 3가지 상태</p>
+      <div className='text-sm'>
+        <SyntaxHighlighter language="javascript" style={docco}>
+        {`// Pending(대기) 
+// 비동기 처리 로직이 아직 완료되지 않은 상태
+new Promise();
+new Promise(function(resolve, reject) {
+});
+
+// Fulfilled(이행) 
+// 비동기 처리가 완료되어 프로미스가 결과 값을 반환해준 상태
+function getData() {
+    return new Promise(function(resolve, reject) {
+        var data = 100;
+        resolve(data);
+    });
+}
+ 
+getData().then(function(responseData) {
+    console.log(responseData); // 100
+});
+
+// Rejected(실패) 
+// 비동기 처리가 실패하거나 오류가 발생한 상태
+function getData() {
+    return new Promise(function(resolve, reject) {
+        reject(new Error('Request is failed'));
+    });
+}
+ 
+getData().then().catch(function(err) {
+    console.error(err); // Error: Request is failed
+});
+
+// 간단한 예제
+function getData() {
+    return new Promise(function(resolve, reject) {
+        $.get('url 주소', function(response) {
+             if(response) resolve(response);
+             reject(new Error('Request is failed'));
+        });
+    });
+}
+ 
+getData()
+.then(function(responseData) {
+    console.log(responseData); // response 값 출력
+})
+.catch(function(err) {
+    console.error(err); // Error: Request is failed
+});`}
+        </SyntaxHighlighter>
+      </div>
     </>
   ); 
 }
 export const getMapFilterReduce = () => { 
   return (
     <>
+      <p className='text-md font-bold'>for, forEach</p>
+      <div className='text-sm'>
+        <SyntaxHighlighter language="javascript" style={docco}>
+        {`var arr = [1,2,3,4,5];
+var new_arr = [];
+ 
+// for
+for (var i = 0 ; i < arr.length ; i++) {
+    if ( arr[i] % 2 == 0 ) {
+        new_arr.push(arr[i]);
+    }
+}
+ 
+// for .. in
+for (a in arr) {
+    if ( a % 2 == 0 ) {
+        new_arr.push(a);
+    }
+}
+ 
+// forEach
+arr.forEach( (n) => {
+    if (n % 2 === 0) new_arr.push(n);
+});`}
+        </SyntaxHighlighter>
+      </div>
+      <p className='text-md font-bold'>map</p>
+      <Alert color="info" className={`mb-2`} >
+        <span><p>배열의 모든 요소에 콜백함수를 적용시켜 새로운 배열을 만들고 싶을 때 사용하는 메서드다.</p></span>
+      </Alert>
+      <div className='text-sm'>
+        <SyntaxHighlighter language="javascript" style={docco}>
+        {`var arr = [1,2,3,4,5];
+var new_arr = arr.map((a) => {
+    if (a % 2 == 0) return a;
+    else undefined;
+});
+//  [undefined, 2, undefined, 4, undefined]`}
+        </SyntaxHighlighter>
+      </div>
+      <p className='text-md font-bold'>filter</p>
+      <Alert color="info" className={`mb-2`} >
+        <span><p>filter 메서드는 Boolean만 반환할 수 있는데 true일 경우 해당 요소를 새로운 배열에 추가하고, false일경우 추가하지않는다.</p></span>
+        <span><p>filter 메서드는 특정 조건에 일치하는 요소만 배열에 담고 싶을 때 사용한다.</p></span>
+      </Alert>
+      <div className='text-sm'>
+        <SyntaxHighlighter language="javascript" style={docco}>
+        {`var arr = [1,2,3,4,5];
+var new_arr = arr.filter((a) => a % 2 == 0);
+// [2,4]`}
+        </SyntaxHighlighter>
+      </div>
+      <p className='text-md font-bold'>reduce</p>
+      <Alert color="info" className={`mb-2`} >
+        <span><p>reduce는 reducer라는 함수를 통해 하나의 데이터를 반환하는 함수다.</p></span>
+        <span><p>반환된 데이터가 String, Number, null, undefined, Array, Object 등 무엇이든 될 수 있다.</p></span>
+      </Alert>
+      <div className='text-sm'>
+        <SyntaxHighlighter language="javascript" style={docco}>
+        {`const fruits = [
+  {name: "Apple", price: 1000},
+  {name: "Banana", price: 5000},
+  {name: "Grape", price: 4000},
+  {name: "Watermelon", price: 20000},
+]
+const totalPrice = fruits.reduce((acc, cur) => {
+  return acc + cur.price;
+}, 0)
+console.log(totalPrice)
+//30000`}
+        </SyntaxHighlighter>
+      </div>
     </>
   ); 
 }
 export const getClass = () => { 
   return (
     <>
+      <Alert color="info" className={`mb-2`} >
+        <span><p>자바스크립트는 프로토타입 기반의 객체 지향 언어이다.</p></span>
+        <span><p>클래스 기반의 객체 지향 프로그래밍도 할 수 있게 Class 키워드를 도입하였다.</p></span>
+        <span><p>자바스크립트에서 클래스는 내부적으로 프로토타입을 이용해서 만들어졌다.</p></span>
+        <span><p>클래시는 사실 특별한 함수이다.</p></span>
+        <span><p>클래스는 호이스팅이 let, const 키워드 처럼 동작한다.</p></span>
+      </Alert>
+      <div className='text-sm'>
+        <SyntaxHighlighter language="javascript" style={docco}>
+        {`class MyClass {
+  // 여러 메서드를 정의할 수 있음
+  constructor() { ... }
+  method1() { ... }
+  method2() { ... }
+  method3() { ... }
+  ...
+}
+
+// 객체의 기본 상태를 설정해주는 생성자 메서드 constructor()는 new에 의해 자동으로 호출되므로, 
+// 특별한 절차 없이 객체를 초기화 할 수 있습니다.
+class User {
+ 
+  constructor(name) {
+    this.name = name;
+  }
+ 
+  sayHi() {
+    alert(this.name);
+  }
+ 
+}
+ 
+// 사용법:
+let user = new User("John");
+user.sayHi();
+// 메서드 사이엔 쉼표가 없습니다.
+// 초보 개발자는 클래스 메서드 사이에 쉼표를 넣는 실수를 저지르곤 합니다. 
+// 이렇게 쉼표를 넣으면 문법 에러가 발생합니다.
+// 클래스와 관련된 표기법은 객체 리터럴 표기법과 차이가 있습니다. 
+// 클래스에선 메서드 사이에 쉼표를 넣지 않아도 됩니다.`}
+        </SyntaxHighlighter>
+      </div>
+      <p className='text-md font-bold'>클래스 표현식</p>
+      <Alert color="info" className={`mb-2`} >
+        <span><p>함수처럼 클래스도 다른 표현식 내부에서 정의, 전달, 반환, 할당할 수 있습니다.</p></span>
+      </Alert>
+      <div className='text-sm'>
+        <SyntaxHighlighter language="javascript" style={docco}>
+        {`let User = class {
+  sayHi() {
+    alert("안녕하세요.");
+  }
+};
+
+// 기명 함수 표현식(Named Function Expression)과 유사하게 클래스 표현식에도 이름을 붙일 수 있습니다.
+// 클래스 표현식에 이름을 붙이면, 이 이름은 오직 클래스 내부에서만 사용할 수 있습니다.
+
+// 기명 클래스 표현식(Named Class Expression)
+// (명세서엔 없는 용어이지만, 기명 함수 표현식과 유사하게 동작합니다.)
+let User = class MyClass {
+  sayHi() {
+    alert(MyClass); // MyClass라는 이름은 오직 클래스 안에서만 사용할 수 있습니다.
+  }
+};
+ 
+new User().sayHi(); // 원하는대로 MyClass의 정의를 보여줍니다.
+ 
+alert(MyClass); // ReferenceError: MyClass is not defined, MyClass는 클래스 밖에서 사용할 수 없습니다.
+
+// 아래와 같이 ‘필요에 따라’ 클래스를 동적으로 생성하는 것도 가능합니다.
+function makeClass(phrase) {
+  // 클래스를 선언하고 이를 반환함
+  return class {
+    sayHi() {
+      alert(phrase);
+    };
+  };
+}
+ 
+// 새로운 클래스를 만듦
+let User = makeClass("안녕하세요.");
+ 
+new User().sayHi(); // 안녕하세요.`}
+        </SyntaxHighlighter>
+      </div>
+      <p className='text-md font-bold'>getter 와 setter</p>
+      <Alert color="info" className={`mb-2`} >
+        <span><p>리터럴을 사용해 만든 객체처럼 클래스도 getter나 setter, 계산된 프로퍼티(computed property)를 지원합니다.</p></span>
+        <span><p>get과set을 이용해 user.name을 조작할 수 있게 해봅시다.</p></span>
+      </Alert>
+      <div className='text-sm'>
+        <SyntaxHighlighter language="javascript" style={docco}>
+        {`class User {
+  constructor(name) {
+    // setter를 활성화합니다.
+    this.name = name;
+  }
+ 
+  get name() {
+    return this._name;
+  }
+ 
+  set name(value) {
+    if (value.length < 4) {
+      alert("이름이 너무 짧습니다.");
+      return;
+    }
+    this._name = value;
+  }
+}
+ 
+let user = new User("보라돌이");
+alert(user.name); // 보라돌이
+ 
+user = new User(""); // 이름이 너무 짧습니다.`}
+        </SyntaxHighlighter>
+      </div>
+      <p className='text-md font-bold'>computed method name</p>
+      <Alert color="info" className={`mb-2`} >
+        <span><p>계산된 메서드 이름 […]</p></span>
+        <span><p>대괄호 [...]를 이용해 계산된 메서드 이름(computed method name)을 만드는 예시를 살펴봅시다.</p></span>
+      </Alert>
+      <div className='text-sm'>
+        <SyntaxHighlighter language="javascript" style={docco}>
+        {`class User {
+  ['say' + 'Hi']() {
+    alert("Hello");
+  }
+}
+new User().sayHi();`}
+        </SyntaxHighlighter>
+      </div>
     </>
   ); 
 }
