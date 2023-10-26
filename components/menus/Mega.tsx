@@ -53,11 +53,11 @@ export default function MegaMenuComponent() {
             </Navbar.Link>
             <Navbar.Link className="curosr-pointer">
               <Dropdown arrowIcon={true} inline 
-                label={<span className={`${pathname.startsWith('/javascript') ? 'text-blue-700' : 'text-gray-900'}`}>javascript</span>}
+                label={<span className={`${pathname??''.startsWith('/javascript') ? 'text-blue-700' : 'text-gray-900'}`}>javascript</span>}
               >
                 <Dropdown.Item
                   onClick={() => {onClickMenu(`/javascript/es6`);}} 
-                  className={`${pathname.startsWith(`/javascript/es6`) ? 'text-blue-700' : 'text-gray-900'}`}
+                  className={`${pathname??''.startsWith(`/javascript/es6`) ? 'text-blue-700' : 'text-gray-900'}`}
                 >
                   ES6
                 </Dropdown.Item>
@@ -65,7 +65,7 @@ export default function MegaMenuComponent() {
             </Navbar.Link>
             <Navbar.Link className="curosr-pointer">
               <Dropdown arrowIcon={true} inline 
-                label={<span className={`${pathname.startsWith('/nextjs') ? 'text-blue-700' : 'text-gray-900'}`}>Nextjs</span>}
+                label={<span className={`${pathname??''.startsWith('/nextjs') ? 'text-blue-700' : 'text-gray-900'}`}>Nextjs</span>}
               >
                 <Dropdown.Item
                 >
@@ -75,14 +75,14 @@ export default function MegaMenuComponent() {
             </Navbar.Link>
             <Navbar.Link className='cursor-pointer'>
               <Dropdown arrowIcon={true} inline 
-                label={<span className={`${pathname.startsWith('/flowbite') ? 'text-blue-700' : 'text-gray-900'}`}>Flowbite</span>}
+                label={<span className={`${pathname??''.startsWith('/flowbite') ? 'text-blue-700' : 'text-gray-900'}`}>Flowbite</span>}
               >
                 {
                   flowbiteList.map((flowbite:any, idx:number) => {
                     return (
                       <Dropdown.Item key={`menu-flowbite-${idx}`} 
                         onClick={() => {onClickMenu(`/flowbite/${flowbite.value}`);}} 
-                        className={`${pathname == `/flowbite/${flowbite.value}` ? 'text-blue-700' : 'text-gray-900'}`}
+                        className={`${pathname??'' == `/flowbite/${flowbite.value}` ? 'text-blue-700' : 'text-gray-900'}`}
                       >
                         {flowbite.label}
                       </Dropdown.Item>
