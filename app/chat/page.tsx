@@ -8,7 +8,6 @@ interface IMsg {
   msg: string;
 }
 
-
 export default function ChatPage() {
   const [userName, setUserName] = useState('');
 
@@ -66,7 +65,6 @@ export default function ChatPage() {
         userName,
         msg
       };
-      console.log(`sendMessage`)
 
       const resp = await fetch("/api/chat", {
         method: "POST",
